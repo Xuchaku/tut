@@ -6,27 +6,28 @@ using namespace std;
 int main()
 {
 	//заполнение массива диагоналями
-	int line, str, num;
+	size_t line, column;
+	int Startnumber;
 	//кол-во строк, колонок, начальное значение
 	do {
 		std::cout << "Count line" << std::endl;
 		std::cin >> line;
 		std::cout << "Count column" << std::endl;
-		std::cin >> str;
-	} while (line < 0 || str < 0);
+		std::cin >> column;
+	} while (line < 0 || column < 0);
 	//ввод размерности массива и начальных условий
 	std::cout << "Start number" << std::endl;
-	std::cin >> num;
+	std::cin >> Startnumber;
 
-	int **arr = new int*[line];
+	int **matrix = new int*[line];
 	for (int k = 0; k < line; k++) {          // двумерный
-		arr[k] = new int[str]; // массив 
+		matrix[k] = new int[column]; // массив 
 	}
 
-	inital_array(arr, line, str, num);//инициализация массива
-	fill_array(arr, line, str, num);//заполнение массива диагнолями
-	print_array(arr, line, str);//вывод массива на экран
-	free_arr(arr, line);
+	inital_array(matrix, line, column, Startnumber);//инициализация массива
+	fill_array(matrix, line, column, Startnumber);//заполнение массива диагнолями
+	print_array(matrix, line, column);//вывод массива на экран
+	free_arr(matrix, line);
 	system("pause");
 
 	return 0;
